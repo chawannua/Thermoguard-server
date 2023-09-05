@@ -1,0 +1,7 @@
+{
+  "name": "thermoguard-server",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.19.0"
+  }
+}
