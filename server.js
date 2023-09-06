@@ -8,9 +8,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'Thermoguard-server')));
 
 // Define a route handler for the root URL ("/")
-app.get('/', (req, res) => {
-  // Send the "html test.html" file as the response
-  res.sendFile(path.join(__dirname, 'Thermoguard-server', 'html test.html'));
+app.get('*', (req, res) => {
+  res.sendFile('main.html', {root: 'Thermoguard-server'});
 });
 
 app.listen(PORT, () => {
