@@ -4,7 +4,7 @@
 
   const PORT = process.env.PORT || 3000;
 
-  app.use(express.static(path.join(__dirname, 'C:\Users\user\Desktop\Thermoguard-server')));
+  app.use(express.static(path.join(__dirname, 'Thermoguard-server')));
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
