@@ -3,10 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Dashboard with Horizontal Slots and Spacing</title>
-   
+    <style>
+      
+    :root {
+          --color-primary: #ff9956;
+          --color-background: rgb(246, 246, 249);
+          --color-dark-var: rgb(0,0,0);
+          --color-success: #41f1b6;
+          --color-danger: #ff7782;
+          --color-warning: #ffbb55;
+          --color-info-dark: rgb(0,0,0);
+          --color-light: rgb(0,0,0);
+          --color-sidebar-hover:#d3d3d3;
+          --color-default: white;
+          --border-radius-1: 15;
+          --card-padding: 10;
+          --card-border-radius: 5;
+
+          --box-shadow: 5;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          outline: 0;
+          appearance: none;
+          border: 0;
+          text-decoration: none;
+          list-style: none;
+          box-sizing: border-box;
+          font-family: Arial, sans-serif;
+        }
+
+        html {
+          font-size: 14px;
+        }
+
+        body {
+          width: 100vw;
+          height: 100vh;
+          font-family: Arial, sans-serif;
+          font-size: 0.88rem;
+          background-color: var(--color-background);
+          user-select: none;
+          overflow-x: hidden;
+        }
+        
+        /* Add some basic styling to the navigation bar */
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            overflow: hidden;
+            float: right; /* Move the navigation bar to the right */
+        }
+
+        /* Style the navigation bar items */
+        ul.navbar li {
+            float: left;
+        }
+
+        /* Style the links in the navigation bar */
+        ul.navbar li a {
+            display: block;
+            color: var(--color-info-dark);
+            text-align: center;
+            padding: 14px 16px;
+            /* text-decoration: none; */
+            font-size: 14px;
+        }
+
+        /* Change the link color when hovering */
+        ul.navbar li a:hover {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+        }
+
+        
+    </style>
 </head>
 <body>
-    <h1>NIGGG</h1>
+  
+    <ul class="navbar">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Dashboard">Dashboard</a></li>
+        <li><a href="#Data">Data</a></li>
+        
+      </ul>
+     
+      <h1> <span class="logo_text" style="color: var(--color-primary)">IoT</span> Thermo Guard</h1>
+    
+    
 </body>
 </html>
