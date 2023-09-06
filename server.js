@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'Thermoguard-server')));
 
 // Define a route handler for the root URL ("/")
 app.get('/', (req, res) => {
-  // Send the contents of the "index.html" file as the response
+  // Send the "html test.html" file as the response
   res.sendFile(path.join(__dirname, 'Thermoguard-server', 'html test.html'));
 });
 
