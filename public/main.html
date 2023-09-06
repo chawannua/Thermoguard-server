@@ -1,99 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      
-    :root {
-          --color-primary: #ff9956;
-          --color-background: rgb(246, 246, 249);
-          --color-dark-var: rgb(0,0,0);
-          --color-success: #41f1b6;
-          --color-danger: #ff7782;
-          --color-warning: #ffbb55;
-          --color-info-dark: rgb(0,0,0);
-          --color-light: rgb(0,0,0);
-          --color-sidebar-hover:#d3d3d3;
-          --color-default: white;
-          --border-radius-1: 15;
-          --card-padding: 10;
-          --card-border-radius: 5;
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>IoT Thermo Guard [Placeholder Data]</title>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d3d3d3;
+  }
+  .dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    gap: 10px;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .graph-container {
+    width: 100%;
+    max-width: 400px;
+  }
+  .header {
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    text-align: center;
+    padding: 12.5px;
+  }
+  .footer {
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    text-align: center;
+    padding: 12.5px;
+  }
 
-          --box-shadow: 5;
-        }
-
-        * {
-          margin: 0;
-          padding: 0;
-          outline: 0;
-          appearance: none;
-          border: 0;
-          text-decoration: none;
-          list-style: none;
-          box-sizing: border-box;
-          font-family: Arial, sans-serif;
-        }
-
-        html {
-          font-size: 14px;
-        }
-
-        body {
-          width: 100vw;
-          height: 100vh;
-          font-family: Arial, sans-serif;
-          font-size: 0.88rem;
-          background-color: var(--color-background);
-          user-select: none;
-          overflow-x: hidden;
-        }
-        
-        /* Add some basic styling to the navigation bar */
-        ul.navbar {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: var(--color-background);
-            overflow: hidden;
-            float: right; /* Move the navigation bar to the right */
-        }
-
-        /* Style the navigation bar items */
-        ul.navbar li {
-            float: left;
-        }
-
-        /* Style the links in the navigation bar */
-        ul.navbar li a {
-            display: block;
-            color: var(--color-info-dark);
-            text-align: center;
-            padding: 14px 16px;
-            /* text-decoration: none; */
-            font-size: 14px;
-        }
-
-        /* Change the link color when hovering */
-        ul.navbar li a:hover {
-            background-color: var(--color-primary);
-            color: var(--color-background);
-        }
-
-        
-    </style>
+  .footer-image {
+    width: 50px;  
+    height: auto;
+    margin-left: 5px;  
+    vertical-align: middle;  
+    color: red;
+    filter: saturate(3)
+  }
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 550px;
+    }
+    .column {
+      max-width: 90%;
+    }
+    .graph-container {
+      max-width: 100%;
+    }
+  }
+</style>
+ 
 </head>
 <body>
-  
-    <ul class="navbar">
-        <li><a href="#Home">Home</a></li>
-        <li><a href="#Dashboard">Dashboard</a></li>
-        <li><a href="#Data">Data</a></li>
-        
-      </ul>
-     
-      <h1> <span class="logo_text" style="color: var(--color-primary)">IoT</span> Thermo Guard</h1>
-    
-    
+<header class='header'>
+  <h1 style='color: #000000;'>IoT Thermo Guard [Placeholder Data]</h1>
+</header>
+<div class='dashboard'>
+  <div class='column'>
+    <div class='value-slot'>
+      <h2>🌡️Temperature (°C)</h2>
+      <p id='temperature'>
+        0°C <!--Temprature Val-->
+      </p>
+    </div>
+    <div class='graph-container'>
+      <canvas class='dataGraphCanvas'></canvas>
+    </div>
+  </div>
+  <div class='column'>
+    <div class='value-slot'>
+      <h2>💧Humidity (%)</h2>
+      <p id='humidity'>
+        N/A <!--Humidity Val-->
+      </p>
+    </div>
+    <div class='graph-container'>
+      <canvas class='dataGraphCanvas'></canvas>
+    </div>
+  </div>
+  <div class='column'>
+    <div class='value-slot'>
+      <h2>💨PM 2.5</h2>
+      <p id='pm25'>
+        N/A <!--Pm Val-->
+      </p>
+    </div>
+    <div class='graph-container'>
+      <canvas class='dataGraphCanvas'></canvas>
+    </div>
+  </div>
+  <div class='column'>
+    <div class='value-slot'>
+      <h2>🔥HeatStrokeLV</h2>
+      <p id='heatstroke'>N/A</p>
+    </div>
+    <div class='graph-container'>
+      <canvas class='dataGraphCanvas'></canvas>
+    </div>
+  </div>
+</div>
+
+<footer class='footer'>
+  <!-- <p style='color: #000000;'> Made by 'TeamName'. </p> -->
+  <p style='color: #000000;'> Text. <img class='footer-image' src='https://lh3.google.com/u/0/d/1-qiRkrSMFI-EBvKgZ4fgTDc2cRIxmDWO=w3499-h7577-iv2' alt='Footer Image'></p>
+</footer>
+
+<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+<script>
+  const temperatureData = [];
+  const humidityData = [];
+  const lv = [];
+  let currentTimeInSeconds = 0;
+
+  function generateData() {
+    currentTimeInSeconds += 30;
+
+    temperatureData.push({
+      x: currentTimeInSeconds,
+      y: Math.random() * 30 + 20
+    });
+
+    humidityData.push({
+      x: currentTimeInSeconds,
+      y: Math.random() * 30 + 40
+    });
+
+    lv.push({
+      x: currentTimeInSeconds,
+      y: Math.random() * 4 + 1
+    });
+
+    if (temperatureData.length > 10) {
+      temperatureData.shift();
+      humidityData.shift();
+      lv.shift();
+    }
+  }
+
+  function formatTime(seconds) {
+    const date = new Date(null);
+    date.setSeconds(seconds);
+    return date.toISOString().substr(11, 8);
+  }
+
+  const graphData = {
+    datasets: [
+      {
+        label: 'Temperature',
+        data: temperatureData,
+        borderColor: 'rgba(255, 99, 132, 1)',
+        fill: false
+      },
+      {
+        label: 'Humidity',
+        data: humidityData,
+        borderColor: 'rgba(54, 162, 235, 1)',
+        fill: false
+      },
+      {
+        label: 'pm25',
+        data: humidityData,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        fill: false
+      },
+      {
+        label: 'heatstroke',
+        data: lv,
+        borderColor: 'rgba(255, 206, 86, 1)',
+        fill: false
+      },
+    ]
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const canvasElements = document.querySelectorAll('.dataGraphCanvas');
+    canvasElements.forEach((canvas, index) => {
+      const ctx = canvas.getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: graphData.labels,
+          datasets: [graphData.datasets[index]],
+        },
+        options: {
+          scales: {
+            x: {
+              type: 'linear', // Use linear scale for timestamps
+              title: {
+                display: true,
+                text: 'Time (hour:minute:second)'
+              },
+              ticks: {
+                callback: function (value) {
+                  return formatTime(value);
+                }
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Value'
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+        }
+      });
+
+      setInterval(() => {
+        generateData();
+        chart.update();
+      }, 2000);
+    });
+  });
+</script>
 </body>
 </html>
