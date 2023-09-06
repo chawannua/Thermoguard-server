@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'Thermoguard-server')));
 
 // Define a route handler for the root URL ("/")
 app.get('*', (req, res) => {
-  res.sendFile('main.html', {root: 'Thermoguard-server'});
+  res.sendFile('main.html', {root: 'public'});
 });
 
 app.listen(PORT, () => {
