@@ -54,3 +54,250 @@
             justify-content: space-between;
             z-index: 100;
         }
+
+        .logo a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+        }
+
+        .navbar li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent; 
+        }
+
+        .navbar li a:hover {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            border-radius: 5px;
+            padding: 5px;
+            background-color: var(--color-sidebar-hover);
+        }
+ 
+        .navbar li a:active {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            border-radius: 5px;
+            padding: 5px;
+            background-color: white;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            width: 30px;
+            height: 3px;
+            background-color: rgb(0, 0, 0);
+            margin: 3px 0;
+            transition: transform 0.3s;
+        }
+
+        .menu-btn.active span:nth-child(1) {
+            transform: translateY(5px) rotate(45deg);
+        }
+
+        .menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active span:nth-child(3) {
+            transform: translateY(-12.5px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 45px;
+                right: 0;
+                background-color: #ff0000;
+                width: 100%;
+                z-index: 10;
+                display: none;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: flex;
+                z-index: 2;
+            }
+
+            .navbar a {
+                text-decoration: none;
+                color: white;
+                font-size: 18px;
+                padding: 10px 20px;
+                display: block;
+                text-align: left;
+            }
+
+            nav.active .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .viewport-div {
+            text-align: center;
+            font-size: large;
+        }
+
+        .viewport-div h1,
+        .viewport-div h2,
+        .viewport-div p {
+            margin: 0;
+        }
+
+        .viewport-div div {
+            text-align: center;
+        }
+
+        .viewport-div a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .viewport-div a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a><span class="logo_text" style="color: var(--color-primary)">IoT</span> Thermo Guard</a>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a id="homebtn">Home</a></li>
+                <li><a id="dashboardbtn">Dashboard</a></li>
+                <li><a id="databtn">Data</a></li>
+            </ul>
+        </div>
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class='viewport-div'>
+        <div id="home-content">
+            <br>
+            <h1>IoT Thermo Guard</h1>
+            <br>
+            <h3>Stage of invention: Prototype</h2>
+            <h3>Invention Category: IoT, Apps, & ICT (Information, Communication & Technology)</h2>
+            <br>
+            <div>
+                <h2>Made by - Astra team: </h2>
+                <br>
+                <p>Mr. Chantararat Cha-Emchan</p>
+                <p>Mr. Chawan Thephasdin Na Ayuthaya</p>
+                <p>Mr. Sirisart Anantasak</p>
+                <p>Mr. Papawin Sutdhiraksa</p>
+                <p>Mr. Sarawin Damrongratnuwong</p>
+                
+                <p>Mr. Narongpat Rasripenngam (Advisor)</p>
+            </div>
+            <br>
+            <div>
+                <h2>Files</h2>
+            </div>
+            <a href="https://drive.google.com/u/0/uc?id=1OFm_rUpEsBiLFRsuH2Fx4aG2rQFKqedW&export=download" download="Iot Thermo Guard Paper.pdf">
+                Paper File
+            </a>
+        </div>
+        <div id="dashboard-content" style="display: none;">
+            <p>Data Tables content goes here.</p>
+        </div>
+        <div id="data-content" style="display: none;">
+            <p>Credits content goes here.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navbar = document.querySelector('.navbar');
+            const homebtn = document.getElementById('homebtn');
+            const dashboardbtn = document.getElementById('dashboardbtn');
+            const databtn = document.getElementById('databtn');
+            const homeContent = document.getElementById('home-content');
+            const dashboardContent = document.getElementById('dashboard-content');
+            const dataContent = document.getElementById('data-content');
+
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle("active");
+                navbar.classList.toggle('active');
+            });
+
+            function setActiveButton(activeBtn) {
+                const buttons = [homebtn, dashboardbtn, databtn];
+                buttons.forEach(button => {
+                    button.classList.remove('active');
+                    button.querySelector('a').classList.remove('active');
+                });
+
+                activeBtn.classList.add('active');
+                activeBtn.querySelector('a').classList.add('active');
+            }
+
+            homebtn.addEventListener('click', () => {
+                homeContent.style.display = 'block';
+                dashboardContent.style.display = 'none';
+                dataContent.style.display = 'none';
+
+                setActiveButton(homebtn);
+            });
+
+            dashboardbtn.addEventListener('click', () => {
+                homeContent.style.display = 'none';
+                dashboardContent.style.display = 'block';
+                dataContent.style.display = 'none';
+
+                setActiveButton(dashboardbtn);
+            });
+
+            databtn.addEventListener('click', () => {
+                homeContent.style.display = 'none';
+                dashboardContent.style.display = 'none';
+                dataContent.style.display = 'block';
+
+                setActiveButton(databtn);
+            });
+        });
+    </script>
+</body>
+</html>
