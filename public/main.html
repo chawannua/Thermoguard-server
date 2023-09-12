@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- This shit has been created by Sirisart Anantasak. -->
+<!-- The reason why I make the whole site look like this is because this was being use for esp32 to host it -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +11,14 @@
         :root {
             --color-primary: #ff9956;
             --color-background: #ebebeb;
-            --color-dark-var: rgb(0,0,0);
+            --color-dark-var: rgb(0, 0, 0);
             --color-success: #41f1b6;
             --color-danger: #ff7782;
             --color-warning: #ffbb55;
-            --color-info-dark: rgb(0,0,0);
-            --color-light: rgb(0,0,0);
+            --color-info-dark: rgb(0, 0, 0);
+            --color-light: rgb(0, 0, 0);
             --color-sidebar-hover: #d3d3d3;
             --color-default: white;
-            --border-radius-1: 15;
-            --card-padding: 10;
-            --card-border-radius: 5;
-            --box-shadow: 5;
         }
 
         * {
@@ -75,7 +74,7 @@
             text-decoration: none;
             color: rgb(0, 0, 0);
             transition: all 0.3s;
-            border-bottom: 2px solid transparent; 
+            border-bottom: 2px solid transparent;
         }
 
         .navbar li a:hover {
@@ -85,7 +84,7 @@
             padding: 5px;
             background-color: var(--color-sidebar-hover);
         }
- 
+
         .navbar li a:active {
             color: var(--color-primary);
             border-bottom: 2px solid var(--color-primary);
@@ -116,6 +115,7 @@
 
         .menu-btn.active span:nth-child(1) {
             transform: translateY(5px) rotate(45deg);
+            background-color: red;
         }
 
         .menu-btn.active span:nth-child(2) {
@@ -124,8 +124,161 @@
 
         .menu-btn.active span:nth-child(3) {
             transform: translateY(-12.5px) rotate(-45deg);
+            background-color: red;       
         }
 
+        .viewport-div {
+            text-align: center;
+            font-size: large;
+        }
+
+        .viewport-div h1,
+        .viewport-div h2,
+        .viewport-div p {
+            margin: 0;
+        }
+
+        .dashboard-values p {
+            font-size: 30px;
+        }
+
+        .dashboard-values h2 {
+            font-size: 37.5px;
+        }
+
+        .viewport-div div {
+            text-align: center;
+        }
+
+        .downloadbtn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .downloadbtn:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .dropbtn:hover {
+            background-color: var(--color-dark-var);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--color-default);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--color-dark-var);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--color-sidebar-hover);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dashboard-values {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+            gap: 10px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 30px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            max-height: 275px;
+        }
+
+        .column-graph {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            gap: 25px;
+            padding: 30px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1020px;
+            height: 400px;
+            max-height: 1000px;
+        }
+
+        .graph-container {
+            width: 450px;
+            max-width: 1000;
+        }
+
+        .unit-text {
+            font-size: 20.F5px;
+        }
+
+        .dashboard-values h2 {
+            color: rgb(0, 0, 0);
+            background-color: #f7deb5;
+            border-radius: 7.5px;
+            padding: 7.5px;
+            font-size: 35px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-gaming {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+
+        }
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -133,7 +286,7 @@
                 position: absolute;
                 top: 45px;
                 right: 0;
-                background-color: #ff0000;
+                background-color: var(--color-default);
                 width: 100%;
                 z-index: 10;
                 display: none;
@@ -154,7 +307,7 @@
                 font-size: 18px;
                 padding: 10px 20px;
                 display: block;
-                text-align: left;
+                text-align: center;
             }
 
             nav.active .navbar {
@@ -162,47 +315,69 @@
                 flex-direction: column;
                 align-items: center;
             }
-        }
 
-        .viewport-div {
-            text-align: center;
-            font-size: large;
-        }
+            .navbar li a:hover {
+                color: var(--color-primary);
+                border-bottom: 2px solid var(--color-primary);
+                border-radius: 5px;
+                background-color: var(--color-sidebar-hover);
+            }
 
-        .viewport-div h1,
-        .viewport-div h2,
-        .viewport-div p {
-            margin: 0;
-        }
+            .navbar li a:active {
+                color: var(--color-primary);
+                border-bottom: 2px solid var(--color-primary);
+                border-radius: 5px;
+                background-color: white;
+            }
 
-        .viewport-div div {
-            text-align: center;
-        }
+            .dashboard-values {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 375px;
+                height: 0px;
+            }
 
-        .viewport-div a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+            .column {
+                max-width: 90%;
+            }
 
-        .viewport-div a:hover {
-            background-color: #0056b3;
+            .graph-container {
+                max-width: 100%;
+            }
+
+            .column-graph {
+                max-width: 90%;
+            }
+
+            .MOBILEDIV {
+                height: 660px;
+            }
+            .MOBILEDIV2 {
+                height: 530.5px;
+            }
+            
+            .column-graph {
+            height: 7800px;
+            max-height: 1000px;
+        }
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="logo">
             <a><span class="logo_text" style="color: var(--color-primary)">IoT</span> Thermo Guard</a>
+            <img src=" https://lh3.google.com/u/0/d/1dK7PtHY1sa5iiEt5stBE7nlQFoLoWEDh=w2560-h4324-iv2"
+            style="width: 35px">
+            <img src="https://lh3.google.com/u/0/d/18T5KBTWC9F4I9cwV1F6fUfDwByfdWxhQ=w2560-h1440-iv2"
+            style="width: 35px">
         </div>
         <div class="navbar">
             <ul>
-                <li><a id="homebtn">Home</a></li>
-                <li><a id="dashboardbtn">Dashboard</a></li>
-                <li><a id="databtn">Data</a></li>
+                <li><a id="homebtn" href="#">Home</a></li>
+                <li><a id="dashboardbtn" href="#">Dashboard</a></li>
+                <li><a id="databtn" href="#">Data</a></li>
             </ul>
         </div>
         <div class="menu-btn">
@@ -210,15 +385,43 @@
             <span></span>
             <span></span>
         </div>
-    </nav>
+    </nav> 
 
     <div class='viewport-div'>
-        <div id="home-content">
+        <div id="home-content" style="display: block;">
             <br>
-            <h1>IoT Thermo Guard</h1>
+            <h1 style="background-color: #f7deb5;color: rgb(0, 0, 0);">IoT Thermo Guard</h2>
             <br>
             <h3>Stage of invention: Prototype</h2>
             <h3>Invention Category: IoT, Apps, & ICT (Information, Communication & Technology)</h2>
+            <br>
+            <div>
+                <img src="https://lh3.google.com/u/0/d/1Qy6SHqnym_T4KL8rfztWnkGYwEXcRmX-=w1220-h1262-iv2"
+                width="400" height="450"
+                >
+            </div>
+            <br>
+            <br>
+            
+            <div style="text-align: center; display: flex;
+            /* width: 200%;
+            max-width: 700px;
+            height: 200px;
+            max-height: 275px;
+            padding: 0;
+            padding-left: 50px; */
+            ">
+                <p>We have developed an IoT Thermo Guard, with the aim of reducing the incidence of heatstroke cases. By promptly notifying individuals about high-risk conditions via Line with an IoT system. We can calculate the risk level of the area from air-quality index and heat index in that area. We can enhance awareness and promote preventive measures. By intergraded climate change awareness and technology, our innovation tries to reduce the effect of heatstroke and contribute to a safer and healthier future for everyone.</p>
+            </div>
+            
+            <br>
+          
+            
+            <a class="downloadbtn" href="https://drive.google.com/u/0/uc?id=1OFm_rUpEsBiLFRsuH2Fx4aG2rQFKqedW&export=download"
+                download="Iot Thermo Guard Paper.pdf">
+                More Info (download)
+            </a>
+            <br>
             <br>
             <div>
                 <h2>Made by - Astra team: </h2>
@@ -228,25 +431,192 @@
                 <p>Mr. Sirisart Anantasak</p>
                 <p>Mr. Papawin Sutdhiraksa</p>
                 <p>Mr. Sarawin Damrongratnuwong</p>
-                
                 <p>Mr. Narongpat Rasripenngam (Advisor)</p>
+                <br>
+                <h3>From Assumption College</h2>
+                <div></div>
+
             </div>
             <br>
-            <div>
-                <h2>Files</h2>
-            </div>
-            <a href="https://drive.google.com/u/0/uc?id=1OFm_rUpEsBiLFRsuH2Fx4aG2rQFKqedW&export=download" download="Iot Thermo Guard Paper.pdf">
-                Paper File
-            </a>
+            <footer class="footer-gaming">
+                <a>&copy; Copyright Space Ac all right reserved.</a>
+            </footer>
         </div>
+
         <div id="dashboard-content" style="display: none;">
-            <p>Data Tables content goes here.</p>
+            <h1>IoT Thermo Guard [Dashboard]</h1><br>
+            <div class="dropdown">
+                <button class="dropbtn">Devices</button>
+                <div id = "device-dropdown-content" class="dropdown-content">
+                    <a href="#">Device1</a>
+                    <a href="#">Device2</a>
+                    <a href="#">Device3</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2 id="current-device">Current Device: Device1</h2>
+            <div class="dashboard-viewport">
+                <div class="dashboard-values" style="height: 25vh;  @media (max-width: 768px) {height: 100vh;}" >
+                    <div class="column">
+                                <h2 style="background-color: var(--color-primary);color: white;">HeatStroke Index</h2>
+                            <p><span id="HeatStrokeIndex">0</span> <span style="color: var(--color-success);">(Safe)</span> </p>
+                    </div>
+                    <div class="column">
+                        <h2 style="background-color: var(--color-primary);color: white;">AQI</h2>
+                            <p><span id="AQI">0</span> <span style="color: var(--color-success);">(Good / Safe)</span></p>
+                          
+                    </div>
+                    <div class="column">
+                        <h2 style="background-color: var(--color-primary);color: white;">UV Index</h2>
+                        <p><span id="UVIndex">0</span> <span style="color: var(--color-success);">(Low / Safe)</span> </p>
+                    </div>
+                    <div class="column">
+                        <h2 style="background-color: var(--color-primary);color: white;"><span style="color: white;">Risk Lv Of The Area</span></h2>
+                        <p><span id="RiskLV">0</span> <span style="color: var(--color-success);">(No Risk / Safe)</span></p>
+                    </div>
+                </div>
+                <div class="MOBILEDIV"></div>
+                <br>
+                <div class="dashboard-values" style="height: 160px; padding: 1px;  @media (max-width: 768px) {height: 22vh;}">
+                    <div class="column">
+                        <h2>Humidity</h2>
+                        <p><span id="Humidity">0</span> <span class="unit-text">%</span></p>
+                    </div>
+                    <div class="column">
+                        <h2>Pm 2.5</h2>
+                        <p><span id="PM25">0</span> <span class="unit-text">ug/m³</span></p>
+                    </div>
+                    <div class="column">
+                        <h2>Temperature</h2>
+                        <p><span id="Temperature">0</span> <span class="unit-text">°C</span></p>
+                    </div> 
+                    <div class="column">
+                        <h2>AirPressure</h2>
+                        <p><span id="AirPressure">0</span> <span class="unit-text">hPa</span></p>
+                    </div>
+                </div>
+                <div class="MOBILEDIV2"></div>
+               
+                <div class="dashboard-values" style="height: 45vh; padding: 1px;  @media (min-width: 768px) {height: 40vh;}">
+                    <div class="column-graph">
+                        <h2 style="color: rgb(255, 255, 255); background-color:var(--color-primary);">Index</h2>
+                        <table border="1" class="INDEXTABLES" style="text-align:left; line-height: 30px;">
+                             
+                            <tr>
+                                <th style= "font-size: 20px;">HeatStroke Index</th>
+                                <th style= "font-size: 20px;">Air Quality Index</th>
+                                <th style= "font-size: 20px;">UV Index</th>
+                                <th style= "font-size: 20px;">Risk Lv</th>
+                            </tr>
+                        
+                            <tr>
+                                <td>0 | Safe</td>
+                                <td>0 - 50 | Good / Safe</td>
+                                <td>1 - 2 | Low / Safe</td>
+                                <td>0 - 4 | No Risk / Safe</td>
+                            </tr>
+                            <tr>
+                                <td>1 | Caution</td>
+                                <td>51 - 100 | Moderate</td>
+                                <td>3 - 5 | Moderate</td>
+                                <td>5 - Inf | Risk</td>
+                            </tr>
+                            <tr>
+                                <td>2 | Extreme Caution</td>
+                                <td>101 - 150 | Unhealthy for Sensitive Groups</td>
+                                <td>6 - 7 | High</td>
+                                <!-- <td>Row 1, Cell 4</td> -->
+                            </tr>
+                            <tr>
+                                <td>3 | Danger</td>
+                                <td>151 - 200 | UnHealthy</td>
+                                <td>8 - 10 | Very High</td>
+                                <!-- <td>Row 1, Cell 4</td> -->
+                            </tr>
+                            <tr>
+                                <td>4 | Extreme Danger</td>
+                                <td>201 - 300 | Very UnHealthy</td>
+                                <td>11 - Inf | Extreme</td>
+                                <!-- <td>Row 1, Cell 4</td> -->
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td>301 - Inf | Hazardous</td>
+                                
+                                <!-- <td>Row 1, Cell 4</td> -->
+                            </tr>
+                        </table>
+                
+                    </div>
+            
+                </div>
+                
+                <script>
+                    function fetchData() {
+                        var DeviceNum = "Device1"
+                        const googleSheetURL = 'https://docs.google.com/spreadsheets/d/1MkCIXPtFRnHyluy9qfIZXl2MzLan5zm_2iAHLcF4b4A/gviz/tq?tqx=out:csv&sheet=' +DeviceNum;
+                        fetch(googleSheetURL)
+                            .then(response => response.text())
+                            .then(data => {
+                            const dataArray = data.split('\n').map(row => row.split(','));
+                            const HeatStrokeIndex = document.getElementById("HeatStrokeIndex");
+                            HeatStrokeIndex.textContent = dataArray[1][8].replace(/"/g, '');
+                            // HeatStrokeIndex IndexTHing
+                            const AQI = document.getElementById("AQI");
+                            AQI.textContent = dataArray[1][6].replace(/"/g, '');
+                            // 
+                            const UVIndex = document.getElementById("UVIndex");
+                            UVIndex.textContent = dataArray[1][7].replace(/"/g, '');
+
+                            const RiskLV  = document.getElementById("RiskLV");
+                            RiskLV.textContent = dataArray[1][9].replace(/"/g, '');
+                        
+                            const Humidity = document.getElementById("Humidity");
+                            Humidity.textContent = dataArray[1][3].replace(/"/g, '');
+                        
+                            const Pm25 = document.getElementById("PM25")
+                            Pm25.textContent = dataArray[1][5].replace(/"/g, '');
+
+                            const Temperature = document.getElementById("Temperature");
+                            Temperature.textContent = dataArray[1][2].replace(/"/g, '');
+                            const AirPressure = document.getElementById("AirPressure");
+                            AirPressure.textContent = dataArray[1][4].replace(/"/g, '');
+                        })
+                        .catch(error => console.error('Error fetching data:', error));
+                    }
+
+                        // Fetch initial data and set up periodic updates
+                        fetchData();
+                        setInterval(fetchData, 1000); // Update every second
+                    // const Column = document.getElementsByTagName("column")// getElementsByTagName()
+                    // console.log(Column)
+   
+                    
+                </script>
+            </div>
+
         </div>
+
         <div id="data-content" style="display: none;">
-            <p>Credits content goes here.</p>
+            <h1>IoT Thermo Guard [Data]</h1><br>
+            <div class="dropdown">
+                <button class="dropbtn">Devices</button>
+                <div id = "device-dropdown-content" class="dropdown-content">
+                    <a href="#">Device1</a>
+                    <a href="#">Device2</a>
+                    <a href="#">Device3</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2 id="current-device">Current Device: Device1</h2>
         </div>
     </div>
+    <br>
 
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuBtn = document.querySelector('.menu-btn');
@@ -267,18 +637,15 @@
                 const buttons = [homebtn, dashboardbtn, databtn];
                 buttons.forEach(button => {
                     button.classList.remove('active');
-                    button.querySelector('a').classList.remove('active');
                 });
 
                 activeBtn.classList.add('active');
-                activeBtn.querySelector('a').classList.add('active');
             }
 
             homebtn.addEventListener('click', () => {
                 homeContent.style.display = 'block';
                 dashboardContent.style.display = 'none';
                 dataContent.style.display = 'none';
-
                 setActiveButton(homebtn);
             });
 
@@ -297,7 +664,23 @@
 
                 setActiveButton(databtn);
             });
+
+            // The Dashboard btn thing
+            
+            var CurrentDevice = "Device1";
+            const dropdownContent = document.getElementById("device-dropdown-content");
+            const dropdownOptions = dropdownContent.getElementsByTagName("a");
+            const currentDeviceText = document.getElementById("current-device");
+            for (let i = 0; i < dropdownOptions.length; i++) {
+                dropdownOptions[i].addEventListener("click", function() {
+                    currentDeviceText.textContent = "Current Device: " + this.textContent;
+                    CurrentDevice = this.textContent;
+                    console.log(CurrentDevice);
+                });
+            }
+
         });
     </script>
 </body>
+
 </html>
