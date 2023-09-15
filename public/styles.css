@@ -284,6 +284,12 @@ nav {
     font-weight: bold;
 
 }
+
+.image-button {
+    width: 100px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;

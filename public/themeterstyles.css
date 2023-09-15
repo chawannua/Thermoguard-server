@@ -1,7 +1,7 @@
 .meter {
     width: 300px;
     height: 150px; /* Half of the height for a half-circle */
-    background: radial-gradient(circle at left, rgb(132, 253, 132) 0%, rgb(255, 255, 112) 50%,rgb(255, 37, 37) 75%, rgb(255, 0, 0) 100%);
+    background: radial-gradient(circle at left, rgb(132, 253, 132) 0%, rgb(253, 196, 23) 50%,rgb(255, 37, 37) 75%, rgb(231, 92, 92) 100%);
     border-radius: 250px 250px 0 0; /* Rounded top corners */
     position: relative;
 }
