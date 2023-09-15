@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Thermo Guard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themeterstyles.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a><span class="logo_text" style="color: var(--color-primary)">IoT</span> Thermo Guard</a>
+            <img src=" https://lh3.google.com/u/0/d/1dK7PtHY1sa5iiEt5stBE7nlQFoLoWEDh=w2560-h4324-iv2"
+            style="width: 35px">
+            <img src="https://lh3.google.com/u/0/d/18T5KBTWC9F4I9cwV1F6fUfDwByfdWxhQ=w2560-h1440-iv2"
+            style="width: 35px">
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a id="homebtn" href="#">Home</a></li>
+                <li><a id="dashboardbtn" href="#">Dashboard</a></li>
+                <li><a id="databtn" href="#">Data</a></li>
+            </ul>
+        </div>
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav> 
+
+    <div class='viewport-div'>
+        <div id="home-content" style="display: none;">
+            <br>
+            <h1 style="background-color: #f7deb5;color: rgb(0, 0, 0);">IoT Thermo Guard</h2>
+            <br>
+            <h3>Stage of invention: Prototype</h2>
+            <h3>Invention Category: IoT, Apps, & ICT (Information, Communication & Technology)</h2>
+            <br>
+            <div>
+                <img src="https://lh3.google.com/u/0/d/1Qy6SHqnym_T4KL8rfztWnkGYwEXcRmX-=w1220-h1262-iv2"
+                width="400" height="450"
+                >
+            </div>
+            <br>
+            <br>
+            
+            <div style="text-align: center; display: flex;
+            /* width: 200%;
+            max-width: 700px;
+            height: 200px;
+            max-height: 275px;
+            padding: 0;
+            padding-left: 50px; */
+            ">
+                <p>We have developed an IoT Thermo Guard, with the aim of reducing the incidence of heatstroke cases. By promptly notifying individuals about high-risk conditions via Line with an IoT system. We can calculate the risk level of the area from air-quality index and heat index in that area. We can enhance awareness and promote preventive measures. By intergraded climate change awareness and technology, our innovation tries to reduce the effect of heatstroke and contribute to a safer and healthier future for everyone.</p>
+            </div>
+            
+            <br>
+          
+            
+            <a class="downloadbtn" href="https://drive.google.com/u/0/uc?id=1OFm_rUpEsBiLFRsuH2Fx4aG2rQFKqedW&export=download"
+                download="Iot Thermo Guard Paper.pdf">
+                More Info (download)
+            </a>
+            <br>
+            <br>
+            <div>
+                <h2>Made by - Astra team: </h2>
+                <br>
+                <p>Mr. Chantararat Cha-Emchan</p>
+                <p>Mr. Chawan Thephasdin Na Ayuthaya</p>
+                <p>Mr. Sirisart Anantasak</p>
+                <p>Mr. Papawin Sutdhiraksa</p>
+                <p>Mr. Sarawin Damrongratnuwong</p>
+                <p>Mr. Narongpat Rasripenngam (Advisor)</p>
+                <br>
+                <h3>From Assumption College</h2>
+                <div></div>
+
+            </div>
+            <br>
+            <footer class="footer-gaming">
+                <a>&copy; Copyright Space Ac all right reserved.</a>
+            </footer>
+        </div>
+
+        <div id="dashboard-content" style="display: block;">
+            <h1>IoT Thermo Guard [Dashboard]</h1><br>
+            <div class="dropdown">
+                <button class="dropbtn">Devices</button>
+                <div id = "device-dropdown-content" class="dropdown-content">
+                    <a href="#">Device1</a>
+                    <a href="#">Device2</a>
+                    <a href="#">Device3</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2 id="current-device">Current Device: Device1</h2>
+            <div class="dashboard-viewport">
+                <div style="color: var( --color-background);" class="dashboard-div-1">a</div>
+                <!-- <div class="dashboard-values" style="height: 45vh;  @media (max-width: 768px) {height: 100vh;}" > -->
+                <div class="dashboard-values" style="height: 27vh">
+                    <div class="column-meter">
+                        <div class="meter">
+                            
+                            <div class="needle"id ="hi-meter" style="z-index: 0;"></div>
+                            <div class="meter"  style="z-index: 0;position: absolute; background: rgb(255, 255, 255);width: 90%;height: 90.25%;transform-origin: center bottom;transform: translateX(5.625%) translateY(11.5%);"></div>
+                            <div class="labels">
+                                <span>0</span>
+                                <span>4</span>
+                            </div>
+                            <h2 style="z-index: 1; color: black;transform-origin: center bottom;transform: translateY(40.5%);position: absolute;">HeatStroke Index</h2>
+                            <p style="z-index: 1;transform-origin: center bottom;transform: translateY(375%);">0<span style="color: var(--color-success);">(Safe)</span></p>
+                           
+                        </div>
+                    </div>
+                    <div class="column-meter">
+                        <div class="meter">
+                            
+                            <div class="needle"  id = "aqi-meter"></div>
+                            <div class="meter" style="z-index: 0;position: absolute; background: rgb(255, 255, 255);width: 90%;height: 90.25%;transform-origin: center bottom;transform: translateX(5.625%) translateY(11.5%);"></div>
+                            <div class="labels">
+                                <span>0</span>
+                                <span>500</span>
+                            </div>
+                            <h2 style="z-index: 5; color: black;transform-origin: center bottom;transform:translateX(30%) translateY(40.5%);position: absolute;">Air Quality<br> Index</h2>
+                            <p style="z-index: 1;transform-origin: center bottom;transform: translateY(375%);">0<span style="color: var(--color-success);">(Safe)</span></p>
+                           
+                        </div>
+                    </div>
+                    <div class="column-meter">
+                        <div class="meter">
+                            
+                            <div class="needle"  id ="uv-meter"></div>
+                            <div class="meter" style="z-index: 0;position: absolute; background: rgb(255, 255, 255);width: 90%;height: 90.25%;transform-origin: center bottom;transform: translateX(5.625%) translateY(11.5%);"></div>
+                            <div class="labels">
+                                <span>0</span>
+                                <span>11+</span>
+                            </div>
+                            <h2 style="z-index: 5; color: black;transform-origin: center bottom;transform:translateX(40%) translateY(100.5%);position: absolute;">UV Index</h2>
+                            <p style="z-index: 1;transform-origin: center bottom;transform: translateY(375%);">0<span style="color: var(--color-success);">(Safe)</span></p>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="MOBILEDIV"></div>
+                <br>
+                <div class="dashboard-values" style="height: 160px; padding: 1px;  @media (max-width: 768px) {height: 22vh;}">
+                    <div class="column">
+                        <h2 class="header">Humidity</h2>
+                        <p>37 <span class="unit-text">%</span></p>
+                    </div>
+                    <div class="column">
+                        <h2 class="header">Pm 2.5</h2>
+                        <p>13.9<span class="unit-text">ug/m³</span></p>
+                    </div>
+                    <div class="column">
+                        <h2 class="header">Temperature</h2>
+                        <p>32 <span class="unit-text">°C</span></p>
+                    </div> 
+                    <div class="column">
+                        <h2 class="header">AirPressure</h2>
+                        <p>940.91 <span class="unit-text">hPa</span></p>
+                    </div>
+                </div>
+               </div>
+
+                
+                
+                <div class="MOBILEDIV2"></div>
+               
+                <div class="dashboard-values" style="height: 45vh; padding: 1px;  @media (min-width: 768px) {height: 40vh;}">
+                    <div class="column-graph">
+                        <h2 style="color: rgb(255, 255, 255); background-color:var(--color-primary);">Index</h2>
+                        <table border="1" class="INDEXTABLES" style="text-align:left; line-height: 30px;">
+                             
+                            <tr>
+                                <th style= "font-size: 20px;">HeatStroke Index</th>
+                                <th style= "font-size: 20px;">Air Quality Index</th>
+                                <th style= "font-size: 20px;">UV Index</th>
+                                <th style= "font-size: 20px;">Risk Lv</th>
+                            </tr>
+                        
+                            <tr>
+                                <td>0 | Safe</td>
+                                <td>0 - 50 | Good / Safe</td>
+                                <td>1 - 2 | Low / Safe</td>
+                                <td>0 - 4 | No Risk / Safe</td>
+                            </tr>
+                            <tr>
+                                <td>1 | Caution</td>
+                                <td>51 - 100 | Moderate</td>
+                                <td>3 - 5 | Moderate</td>
+                                <td>5 - Inf | Risk</td>
+                            </tr>
+                            <tr>
+                                <td>2 | Extreme Caution</td>
+                                <td>101 - 150 | Unhealthy for Sensitive Groups</td>
+                                <td>6 - 7 | High</td>
+ 
+                            </tr>
+                            <tr>
+                                <td>3 | Danger</td>
+                                <td>151 - 200 | UnHealthy</td>
+                                <td>8 - 10 | Very High</td>
+                               
+                            </tr>
+                            <tr>
+                                <td>4 | Extreme Danger</td>
+                                <td>201 - 300 | Very UnHealthy</td>
+                                <td>11 - Inf | Extreme</td>
+                               
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td>301 - Inf | Hazardous</td>
+                                
+                              
+                            </tr>
+                        </table>
+                
+                    </div>
+            
+                </div>
+         
+            </div>
+
+        </div>
+
+        <div id="data-content" style="display: none;">
+            <h1>IoT Thermo Guard [Data]</h1><br>
+            <div class="dropdown">
+                <button class="dropbtn">Devices</button>
+                <div id = "device-dropdown-content-data" class="dropdown-content">
+                    <a href="#">Device1</a>
+                    <a href="#">Device2</a>
+                    <a href="#">Device3</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h2 id="current-device-data">Current Device: Device1</h2>
+        </div>
+    </div>
+
+    <script src="Assets/Scripts/NavigationHandler.js"></script>
+    <script src="Assets/Scripts/DashboardHandler.js"></script>
+    <script src="Assets/Scripts/DataHandler.js"></script>
+</body>
+
+</html>
